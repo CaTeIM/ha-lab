@@ -1,0 +1,70 @@
+# Configuração Gree MQTT Bridge para Home Assistant
+# Configure com base no seu setup mostrado nas imagens
+
+# Configurações do broker MQTT
+mqtt:
+  host: "127.0.0.1"          # IP do Home Assistant (mesmo host)
+  port: 1883                 # Porta padrão Mosquitto
+  username: "mqtt"           # Usuário configurado no Mosquitto
+  password: "mqtt"       # Senha configurada no Mosquitto
+  client_id: "gree_bridge"   # ID único do cliente
+  
+# Configurações de descoberta automática
+discovery:
+  enabled: true              # Habilita descoberta automática
+  timeout: 10               # Timeout para descoberta (segundos)
+  broadcast_address: "255.255.255.255"  # Endereço de broadcast
+  
+# Intervalo de polling (atualização de status)
+polling_interval: 30        # Segundos entre atualizações
+
+# Configurações de log
+logging:
+  level: "INFO"             # DEBUG, INFO, WARNING, ERROR
+  file: "gree_bridge.log"   # Arquivo de log (opcional)
+  
+# Dispositivos manuais (caso a descoberta automática falhe)
+devices:
+  # Exemplo de configuração manual:
+  # - id: "sala_ac"              # ID único
+  #   name: "Ar Condicionado Sala" # Nome amigável
+  #   ip: "192.168.1.100"        # IP fixo do AC
+  #   port: 7000                 # Porta (padrão 7000)
+  #   mac: "48:61:cf:xx:xx:xx"   # MAC address (opcional)
+  #   key: ""                    # Chave de criptografia (opcional)
+  
+  # - id: "quarto_ac"
+  #   name: "Ar Condicionado Quarto"
+  #   ip: "192.168.1.101"
+  #   port: 7000
+
+# Configurações avançadas
+advanced:
+  retry_attempts: 3         # Tentativas de reconexão
+  retry_delay: 5           # Delay entre tentativas (segundos)
+  command_timeout: 10      # Timeout para comandos (segundos)
+  keep_alive: 60          # Keep alive MQTT (segundos)
+  
+# Configurações específicas do Home Assistant
+homeassistant:
+  discovery_prefix: "homeassistant"  # Prefixo para MQTT Discovery
+  device_class: "climate"            # Classe do dispositivo
+  retain_messages: true              # Manter mensagens no broker
+  
+# Mapeamento customizado de comandos (avançado)
+# command_mapping:
+#   temperature_step: 1     # Passo de temperatura
+#   min_temperature: 16     # Temperatura mínima
+#   max_temperature: 30     # Temperatura máxima
+#   supported_modes:        # Modos suportados
+#     - "off"
+#     - "auto" 
+#     - "cool"
+#     - "heat"
+#     - "dry"
+#     - "fan_only"
+#   supported_fan_modes:    # Modos de ventilador
+#     - "auto"
+#     - "low"
+#     - "medium"
+#     - "high"
