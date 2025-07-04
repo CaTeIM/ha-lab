@@ -1,0 +1,29 @@
+[Unit]
+Description=Gree MQTT Bridge for Home Assistant
+Documentation=https://github.com/seu-usuario/gree-mqtt-bridge
+After=network-online.target mosquitto.service
+Wants=network-online.target
+Requires=mosquitto.service
+
+[Service]
+Type=simple
+User=homeassistant
+Group=homeassistant
+WorkingDirectory=/config/gree-mqtt-bridge
+Environment=PATH=/config/gree-mqtt-bridge/venv/bin
+ExecStart=/config/gree-mqtt-bridge/venv/bin/python gree_mqtt_bridge.py --config config.yaml
+Restart=always
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=gree-mqtt-bridge
+
+# Configurações de segurança
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectSystem=strict
+ProtectHome=yes
+ReadWritePaths=/config/gree-mqtt-bridge
+
+[Install]
+WantedBy=multi-user.target
