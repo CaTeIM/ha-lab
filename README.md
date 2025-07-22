@@ -27,14 +27,6 @@ Uma interface e um conjunto de automações para controlar a lavadora Electrolux
 
 > [**Ver documentação completa ➔**](./washing_machine.md)
 
-### ❄️ Bridge MQTT para Ar Condicionado Gree (Wait..⚠️)
-Uma solução robusta e estável para integrar Ar Condicionados da marca Gree, superando as limitações das integrações diretas.
-- Utiliza um **bridge em Python** para traduzir os comandos do ar condicionado para o protocolo MQTT.
-- Oferece **maior confiabilidade e flexibilidade**, desacoplando o Home Assistant do dispositivo.
-- Inclui **descoberta automática** de dispositivos na rede e configuração via MQTT Discovery do Home Assistant.
-
-> [**Ver documentação completa ➔**](./gree-mqtt-bridge/README.md)
-
 ## 💡 Filosofia do Laboratório
 
 O objetivo deste repositório é ser um espaço de **experimentação prática**. Muitas soluções aqui nasceram de uma necessidade real ou da simples curiosidade de "será que dá pra fazer isso?". Acredito que compartilhar esses projetos pode ajudar e inspirar outras pessoas na comunidade Home Assistant.
